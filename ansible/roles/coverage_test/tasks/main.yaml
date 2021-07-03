@@ -1,0 +1,3 @@
+--- # Testear una app de iop en Debian 10 - Buster
+- name: Ejecutar los test de covertura
+  shell: npm run test:coverage

@@ -1,0 +1,16 @@
+location / {
+        try_files $uri /index.html;
+}
+
+#location ~ ^/{{ appName }}(/.*|$) {
+#    alias /var/www/{{ projectName }}/public$1;
+#    passenger_base_uri /{{ appName }};
+#    passenger_app_root /var/www/{{ projectName }};
+#    passenger_document_root /var/www/{{ projectName }}/public;
+#    passenger_enabled on;
+#    passenger_app_env development;
+#    passenger_app_type node;
+#    passenger_startup_file src/main.js;
+#    passenger_nodejs /usr/bin/node;
+#    allow 0.0.0.0;
+#}

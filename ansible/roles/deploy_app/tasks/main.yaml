@@ -1,0 +1,65 @@
+--- # Desplegar una app de iop con nginx en Debian 10 - Buster
+- name: Registrar el directorio de artefactos
+  stat:
+    path: /opt/builds
+  register: backupDir
+
+- name: Crear el directorio de artefactos
+  file:
+    path: /opt/builds
+    state: directory
+  when: backupDir.stat.isdir is not defined
+
+- name: Registrar el directorio actual de la app
+  stat:
+    path: /var/www/{{ projectName }}
+  register: appDir
+
+# - name: Comprimir y guardar el directorio actual de la app
+#   archive:
+#     path: /var/www/{{ projectName }}
+#     dest: /opt/apps/{{ projectName }}-{{ lookup('pipe', 'date +%d%m%Y-%H%M%S') }}.tgz
+#     remove: true
+#   when: appDir.stat.isdir is defined
+
+
+- name: Crear el directorio de la app
+  file:
+    path: /var/www/{{ projectName }}
+    owner: www-data
+    group: www-data
+    state: directory
+  when: appDir.stat.isdir is not defined
+
+- name: Traer el comprimido de la app construida del servidor de gitlab-runner
+  copy:
+    src: /opt/builds/{{ projectName }}-{{ projectCommitSha }}.tar
+    dest: /tmp/{{ projectName }}.tar
+
+- name: Descomprimir el archivo en /var/www
+  unarchive:
+    src: /tmp/{{ projectName }}.tar
+    dest: /var/www
+    remote_src: yes
+
+- name: Cambiar el owner y group para el directorio de la app
+  file:
+    path: /var/www/{{ projectName }}
+    owner: www-data
+    group: www-data
+    recurse: yes
+
+- name: Configurar el archivo default de nginx
+  template:
+    src: default.j2
+    dest: /etc/nginx/sites-enabled/default
+
+- name: Copiar la configuración de la app en nginx
+  template:
+    src: nginx-app.conf.j2
+    dest: /etc/nginx/sites-available/{{ projectName }}.conf
+
+- name: Reinicio de nginx
+  service:
+    name: nginx
+    state: restarted

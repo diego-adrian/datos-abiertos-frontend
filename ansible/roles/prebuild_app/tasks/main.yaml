@@ -1,0 +1,69 @@
+--- # instalar paquetes necesarios
+- name: Instalar paquetes básicos necesarios
+  apt:
+    name: [curl, wget, apt-transport-https, gnupg, git]
+    state: present
+
+- name: Descargar nodejs
+  get_url:
+    url: https://deb.nodesource.com/setup_14.x
+    dest: /tmp/setup_14.x.sh
+    mode: 777
+
+- name: Preparar la instalación de nodejs
+  command: sh /tmp/setup_14.x.sh
+
+- name: Instalar nodejs
+  apt:
+    name: nodejs
+    state: present
+
+- name: Instalar dependencias necesarias
+  apt:
+    name: [dirmngr, gnupg]
+    state: present
+
+- name: Registrar la llave de nginx con phusion passenger
+  apt_key:
+    keyserver: hkp://keyserver.ubuntu.com:80
+    id: 561F9B9CAC40B2F7
+    state: present
+
+- name: Adicionar el repositorio de phusion passenger
+  apt_repository:
+    repo: deb https://oss-binaries.phusionpassenger.com/apt/passenger buster main
+    state: present
+    update_cache: yes
+    filename: passenger
+
+- name: Instalar nginx
+  apt:
+    name: [nginx, libnginx-mod-http-passenger]
+    state: present
+
+- name: Configurar el archivo default de Nginx
+  template:
+    src: default.j2
+    dest: /etc/nginx/sites-enabled/default
+
+- name: Reiniciar el servicio
+  service:
+    name: nginx
+    state: restarted
+
+- name: Registrar el directorio de artefactos
+  stat:
+    path: /opt/builds
+  register: artifactsDir
+
+- name: Crear el directorio de artefactos
+  file:
+    path: /opt/builds
+    owner: gitlab-runner
+    group: gitlab-runner
+    state: directory
+    mode: 0755
+  when: artifactsDir.stat.isdir is not defined
+
+- name: Configurar repositorios NPM locales
+  shell: npm set registry https://registry.upat.agetic.gob.bo/

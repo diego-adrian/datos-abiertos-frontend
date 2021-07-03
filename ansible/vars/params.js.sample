@@ -1,0 +1,4 @@
+module.exports = {
+  SUBPATH: '/api/v1/',
+  PORT: 3000
+};

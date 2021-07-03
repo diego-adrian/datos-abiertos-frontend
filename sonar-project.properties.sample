@@ -1,0 +1,10 @@
+sonar.projectKey=frontend-base-vue
+sonar.sources=src
+sonar.host.url=https://test.agetic.gob.bo/sonarqube
+sonar.login=<token-del-usuario-generado-en-soranqube>
+sonar.exclusions=/node_modules/,tests/,coverage/
+sonar.tests=tests
+sonar.test.inclusions=tests/unit/*.spec.js
+sonar.javascript.lcov.reportPaths=coverage/lcov.info
+sonar.testExecutionReportPaths=test-report.xml
+sonar.projectVersion=<version-proyecto>

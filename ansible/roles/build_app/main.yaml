@@ -1,0 +1,12 @@
+--- # Construir una app de iop en Debian 10 - Buster
+
+- name: Generar build de la aplicación
+  shell: cd {{ projectPath }} && npm run build && echo 'buildeando la app'
+
+# - name: Guardar Compilado de la aplicación
+#  shell: cd {{ projectPath }} && tar -zcvf  '{{ projectName }}.tar' dist. && sudo cp '{{ projectName }}.tar' /opt/builds
+# - name: asignando los permisos correspondientes
+#   shell: sudo chown -R gitlab-runner:gitlab-runner ./
+
+#- name: Guardar el compilado
+#  shell: cd {{ projectPath }} && cp -R . /tmp/{{ projectName }}/ # && rm /tmp/{{ projectName }}/.eslintrc.json /tmp/{{ projectName }}/.gitignore /tmp/{{ projectName }}/README.md /tmp/{{ projectName }}/.gitlab-ci.yml && rm -R  .git

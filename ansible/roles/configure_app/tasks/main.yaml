@@ -1,0 +1,3 @@
+# Instalacion de Servicios de Interoperabilidad activables desde el gitlab-runner para debian 10 Buster
+- name: Copiar archivos de configuración
+  shell: cp /opt/vars/.env {{ projectPath }}/

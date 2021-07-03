@@ -1,0 +1,5 @@
+--- # Instalar Snyk en Debian 10 - Buster
+- name: Instalar snyk
+  npm:
+    name: snyk
+    global: yes

@@ -1,0 +1,3 @@
+--- # Eliminar cache gitlab runner de la ap
+- name: Eliminando cache generada
+  shell: sudo rm -rf /home/gitlab-runner/cache

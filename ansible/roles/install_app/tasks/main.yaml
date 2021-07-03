@@ -1,0 +1,7 @@
+--- # Construir una app de iop en Debian 10 - Buster
+- name: Configurar repositorios locales
+  shell: cd {{ projectPath }} && npm config set https://registry.upat.agetic.gob.bo/
+
+- name: Instalar las dependencias NPM
+  shell: cd {{ projectPath }} && npm ci
+

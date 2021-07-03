@@ -1,0 +1,15 @@
+--- # Instalación y configuración del software para CI/CD en servidor IOP Debian 10 Buster
+- hosts: localhost
+  become: yes
+  become_user: root
+  roles:
+    - prebuild_app
+  tasks:
+  - name: Instalar Retire
+    import_role:
+      name: prebuild_app
+      tasks_from: install_retire
+  - name: Instalar Snyk
+    import_role:
+      name: prebuild_app
+      tasks_from: install_snyk

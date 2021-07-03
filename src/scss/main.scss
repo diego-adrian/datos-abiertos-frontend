@@ -1,0 +1,283 @@
+@import "./variables.scss";
+body,
+html {
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+  font-weight: 400;
+
+  .cursor--pointer {
+    cursor: pointer !important;
+  }
+  .user--select {
+    user-select: none !important;
+  }
+  .main {
+    width: 100%;
+    margin-top: 60px;
+    padding-top: 10px;
+    min-height: calc(100vh - 300px);
+  }
+  .isLogin {
+    & > div {
+      width: 100%;
+      min-width: 100%;
+    }
+  }
+  .fwb {
+    font-weight: bold !important;
+  }
+  .fs8 {
+    font-size: 0.8rem !important;
+  }
+  .fs9 {
+    font-size: 0.9rem !important;
+  }
+  .fs10 {
+    font-size: 1rem !important;
+  }
+  .fs11 {
+    font-size: 1.1rem !important;
+  }
+  .fs12 {
+    font-size: 1.2rem !important;
+  }
+  .fs15 {
+    font-size: 1.5rem !important;
+  }
+  .w50 {
+    width: 50%;
+  }
+  .w100 {
+    width: 100%;
+  }
+  .v-card:not(.v-sheet--tile):not(.v-card--shaped) {
+    border-radius: 0;
+  }
+  .set--top--layout {
+    margin-top: 55px;
+  }
+  .subtitle {
+    font-size: 20px;
+  }
+
+  .background-1 {
+    background: $color1 !important;
+  }
+  .background-2 {
+    background: $color2 !important;
+  }
+  .background-3 {
+    background: $color3 !important;
+  }
+  .background-4 {
+    background: $color4 !important;
+  }
+  .background-5 {
+    background: $color5 !important;
+  }
+  .background-6 {
+    background: $color6 !important;
+  }
+  .text--wrap:not(:empty),
+  .text--wrap > div:first-child:not(:empty) {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 300px;
+    span {
+      max-width: 50px;
+      display: block;
+      color: $info;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+
+  .pointer-events {
+    pointer-events: none !important;
+  }
+
+  .custom--tooltip {
+    position: absolute;
+    max-width: 400px;
+    width: auto;
+    height: auto;
+    border: 2px solid $info;
+    border-radius: 7px;
+    z-index: 99;
+    white-space: normal;
+    padding: 10px;
+    margin-top: 14px;
+    background: $backgroundColor;
+  }
+
+  .caret-top {
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-top: 10px solid $info;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+  }
+
+  .caret-bottom {
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-top: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid $info;
+  }
+
+  .item--group--settings {
+    .v-list-group__header__prepend-icon {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border-radius: 10px;
+      min-width: 60px !important;
+      width: 60px !important;
+      min-height: 60px !important;
+      height: 60px !important;
+      .v-icon {
+        color: $color1 !important;
+      }
+    }
+  }
+
+  .bloque--configuraciones {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border-radius: 10px;
+    min-width: 60px !important;
+    width: 60px !important;
+    min-height: 60px !important;
+    height: 60px !important;
+    .a-icon {
+      color: $color1;
+    }
+  }
+
+  .ruta--menu {
+    color: $color1 !important;
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+  }
+
+  .theme--dark .v-toolbar__content {
+    border-bottom: thin solid rgba(255, 255, 255, 0.12) !important;
+  }
+  .theme--dark .v-dialog {
+    background: $backgroundColor !important;
+  }
+  .theme--dark.v-list {
+    background: $backgroundColor !important;
+  }
+  .theme--dark .v-card {
+    background: $backgroundColor !important;
+  }
+
+  .theme--dark .v-main .v-main__wrap {
+    background: $backgroundColor !important;
+  }
+  .theme--dark .v-main .v-data-table {
+    background: $backgroundColor !important;
+  }
+  .theme--dark .v-main .v-tabs-items {
+    background: $backgroundColor !important;
+  }
+  .theme--dark .v-navigation-drawer {
+    background: $backgroundColor !important;
+  }
+  .theme--dark.v-text-field--solo > .v-input__control > .v-input__slot {
+    background: $backgroundColor !important;
+  }
+
+  .v-application {
+    [class*="text-"],
+    .v-list-item__title {
+      font-family: $body-font-family !important;
+      font-weight: 400 !important;
+      font-size: 0.875rem !important;
+    }
+    font-family: $body-font-family !important;
+    font-size: 14px !important;
+
+    .v-data-footer__pagination {
+      margin: 0 15px 0 15px;
+    }
+
+    .v-date-picker-table--disabled {
+      .v-btn--active {
+        .v-btn__content {
+          color: $white !important;
+        }
+      }
+    }
+    .v-label {
+      font-size: 14px !important;
+    }
+
+    .v-data-footer__select .v-select {
+      margin: 13px 0 13px 20px;
+    }
+
+    .v-data-table td {
+      min-height: 70px;
+      height: 70px !important;
+    }
+    th {
+      white-space: nowrap;
+      font-weight: 200;
+      font-size: 0.9rem !important;
+    }
+
+    .fw-200 {
+      font-weight: 200 !important;
+    }
+
+    .avatar--user {
+      border: 2px solid $info !important;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+    .v-list-group__header__prepend-icon {
+      margin-right: 5px !important;
+      margin-left: 3px !important;
+      margin-top: 7px !important;
+      margin-bottom: 7px !important;
+      i {
+        color: $white !important;
+      }
+    }
+    .v-list-item__icon i {
+      max-width: 27px !important;
+      min-width: 27px !important;
+    }
+
+    .v-list-group__header__append-icon {
+      i {
+        color: $white;
+      }
+    }
+    .v-data-table-header-mobile {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) and (min-width: 1px) {
+  .v-data-footer {
+    justify-content: flex-start;
+  }
+}

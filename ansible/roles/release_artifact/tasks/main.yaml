@@ -1,0 +1,8 @@
+- name: Crear y guardar el artefacto comprimido de la app
+  shell: |
+    cd  {{ projectPath }} && \
+    sudo cp /opt/vars/.env .env &&\
+    npm run build && \
+    mv dist  {{ projectName }} && \
+    tar -zcf '{{ projectName }}-{{ projectCommitSha }}.tar' '{{ projectName }}' &&
+    sudo cp  '{{ projectName }}-{{ projectCommitSha }}.tar' /opt/builds

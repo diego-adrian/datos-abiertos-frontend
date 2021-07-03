@@ -1,0 +1,5 @@
+--- # Instalar retire en Debian 10 - Buster
+- name: Instalar retireJS
+  npm:
+    name: retire
+    global: yes

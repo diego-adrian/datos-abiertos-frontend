@@ -1,0 +1,778 @@
+{
+  "finalizado": true,
+  "mensaje": "Registros obtenidos correctamente",
+  "datos": {
+    "total": 15,
+    "listado": [{
+      "activo": true,
+      "deleted": false,
+      "_id": "5ced52d4e58a83406469aa70",
+      "user": "Admin Procuraduría",
+      "password": "$2a$10$vVpdey2YYNGN1svhFHxIJOku.WOgk8R/OjW3.lNjMuSsZrE9HUBNy",
+      "nombres": "INGRID",
+      "primer_apellido": "PAZ",
+      "segundo_apellido": "GARCIA",
+      "email": "agepic-6303340@yopmail.com",
+      "telefono": "64643901",
+      "institucion": {
+        "telefonos": ["2173900"],
+        "activo": true,
+        "deleted": false,
+        "_id": "5ced5258e58a83406469aa6d",
+        "nombre": "Procuraduría General del Estado",
+        "sigla": "PGE",
+        "descripcion": "Procuraduría General del Estado",
+        "email": "agepic-6303340@yopmail.com",
+        "web": "https://www.procuraduria.gob.bo/2017/",
+        "mae": "4093457",
+        "fecha_nacimiento": "01/05/1978",
+        "direccion": "Calle Martín Cárdenas, esquina calle 11 de Junio, zona Ferropetrol.",
+        "codigo_portal": "123456",
+        "createAt": "2019-05-28T15:23:04.016Z",
+        "updateAt": "2019-05-28T15:23:04.016Z",
+        "deleteAt": "2019-05-28T15:23:04.016Z",
+        "__v": 0
+      },
+      "roles": {
+        "menu": [{
+          "url": "",
+          "icon": "desktop_mac",
+          "label": "Inicio"
+        }, {
+          "url": "documentos_plantilla",
+          "icon": "folder",
+          "label": "Documentos"
+        }, {
+          "url": "documentos-firmados",
+          "icon": "fingerprint",
+          "label": "Documentos Firmados"
+        }, {
+          "url": "lista_flujos",
+          "icon": "directions",
+          "label": "Flujos"
+        }, {
+          "url": "instanciador-flujos",
+          "icon": "device_hub",
+          "label": "Instanciador"
+        }, {
+          "url": "grupos",
+          "icon": "people",
+          "label": "Grupos"
+        }, {
+          "url": "configuracion",
+          "icon": "settings",
+          "label": "Configuración",
+          "submenu": [{
+            "url": "instituciones",
+            "label": "Instituciones"
+          }, {
+            "url": "usuarios",
+            "label": "Usuarios"
+          }, {
+            "url": "plugins",
+            "label": "Plugins"
+          }, {
+            "url": "editor_de_validaciones",
+            "label": "Editor de validaciones"
+          }]
+        }],
+        "_id": "000000000000000000000333",
+        "titulo": "Administrador de Insitución"
+      },
+      "tipo_documento": "CARNET_IDENTIDAD",
+      "ci": "6303340",
+      "fecha_nacimiento": "24/02/1967",
+      "createAt": "2019-05-28T15:25:08.556Z",
+      "updateAt": "2019-05-28T15:30:10.905Z",
+      "deleteAt": "2019-05-28T15:25:08.556Z",
+      "__v": 0
+    }, {
+      "activo": true,
+      "deleted": false,
+      "_id": "5c8ac7ff46fda3652a7a9313",
+      "user": "Admin TSJ",
+      "password": "$2a$10$RiNHtjh2kPIljSpYw4JOGuvST2z8Ewu7KKaVGNUwuRKwtGYkdxmw2",
+      "nombres": "MARIANA",
+      "primer_apellido": "ROCHA",
+      "segundo_apellido": "MACUAPA",
+      "email": "ee@agetic.gob.bo",
+      "telefono": "2787318",
+      "institucion": {
+        "telefonos": [],
+        "activo": true,
+        "deleted": false,
+        "_id": "5c8ac70f46fda3652a7a9133",
+        "nombre": "Tribunal Supremo de Justicia",
+        "sigla": "TSJ",
+        "descripcion": "Máximo tribunal de justicia en la jurisdicción ordinaria",
+        "email": "ee@agetic.gob.bo",
+        "web": "tsj.gob.bo",
+        "mae": "4206088",
+        "fecha_nacimiento": "19/09/1966",
+        "direccion": "Sucre calle 11 # 250",
+        "codigo_portal": "1234",
+        "createAt": "2019-03-14T21:26:39.749Z",
+        "updateAt": "2019-04-16T13:38:31.656Z",
+        "deleteAt": "2019-03-14T21:26:39.749Z",
+        "__v": 0
+      },
+      "roles": {
+        "menu": [{
+          "url": "",
+          "icon": "desktop_mac",
+          "label": "Inicio"
+        }, {
+          "url": "documentos_plantilla",
+          "icon": "folder",
+          "label": "Documentos"
+        }, {
+          "url": "documentos-firmados",
+          "icon": "fingerprint",
+          "label": "Documentos Firmados"
+        }, {
+          "url": "lista_flujos",
+          "icon": "directions",
+          "label": "Flujos"
+        }, {
+          "url": "instanciador-flujos",
+          "icon": "device_hub",
+          "label": "Instanciador"
+        }, {
+          "url": "grupos",
+          "icon": "people",
+          "label": "Grupos"
+        }, {
+          "url": "configuracion",
+          "icon": "settings",
+          "label": "Configuración",
+          "submenu": [{
+            "url": "instituciones",
+            "label": "Instituciones"
+          }, {
+            "url": "usuarios",
+            "label": "Usuarios"
+          }, {
+            "url": "plugins",
+            "label": "Plugins"
+          }, {
+            "url": "editor_de_validaciones",
+            "label": "Editor de validaciones"
+          }, {
+            "url": "tags",
+            "label": "Tags"
+          }, {
+            "url": "credenciales",
+            "label": "Credenciales"
+          }]
+        }],
+        "_id": "000000000000000000000222",
+        "titulo": "Super Administrador"
+      },
+      "tipo_documento": "CARNET_IDENTIDAD",
+      "ci": "4206088",
+      "fecha_nacimiento": "25/10/1973",
+      "createAt": "2019-03-14T21:30:39.384Z",
+      "updateAt": "2019-03-27T22:06:49.274Z",
+      "deleteAt": "2019-03-14T21:30:39.384Z",
+      "__v": 0
+    }, {
+      "activo": true,
+      "deleted": false,
+      "_id": "5c3fb058dca9f042b9bf36b5",
+      "user": "oopp",
+      "password": "$2a$10$5TAkzHhTwSBr.GgKJDTXQOMJFAiCAvC/EpD5dx.GheQKrQudmyVDy",
+      "nombres": "CRISTHIAN",
+      "primer_apellido": "PESOA",
+      "segundo_apellido": "FERNANDEZ",
+      "email": "agepic-6288534@yopmail.com",
+      "telefono": "",
+      "institucion": {
+        "telefonos": ["2245667", "2282605"],
+        "activo": true,
+        "deleted": false,
+        "_id": "5b7b154d8f9e451b0887858a",
+        "nombre": "Agencia Gobierno Electronico y Tecnologias de la Informacion y Comunicacion",
+        "sigla": "AGETIC",
+        "descripcion": "La AGETIC es la institución referente en desarrollo e implementación de Gobierno Electrónico y Tecnologías de la Información y Comunicación, generando conocimiento, mejorando el servicio público y facilitando la participación para el bienestar de la población.",
+        "codigo_portal": "164",
+        "email": "contacto@agetic.gob.bo",
+        "web": "www.agetic.gob.bo",
+        "direccion": "Sopocachi, Calle Pedro Salazar Nº 631, esq. Andrés Muñoz. Edificio del Fondo Nacional de Desarrollo Regional (FNDR). Pisos 4 y 5",
+        "fecha_nacimiento": "27/05/1972",
+        "mae": "8165354",
+        "updateAt": "2019-05-10T17:04:16.826Z",
+        "createAt": "2020-01-06T13:18:11.130Z",
+        "deleteAt": "2020-01-06T13:18:11.130Z"
+      },
+      "roles": {
+        "menu": [{
+          "url": "",
+          "icon": "desktop_mac",
+          "label": "Inicio"
+        }, {
+          "url": "documentos_plantilla",
+          "icon": "folder",
+          "label": "Documentos"
+        }, {
+          "url": "documentos-firmados",
+          "icon": "fingerprint",
+          "label": "Documentos Firmados"
+        }, {
+          "url": "lista_flujos",
+          "icon": "directions",
+          "label": "Flujos"
+        }, {
+          "url": "instanciador-flujos",
+          "icon": "device_hub",
+          "label": "Instanciador"
+        }, {
+          "url": "grupos",
+          "icon": "people",
+          "label": "Grupos"
+        }, {
+          "url": "configuracion",
+          "icon": "settings",
+          "label": "Configuración",
+          "submenu": [{
+            "url": "instituciones",
+            "label": "Instituciones"
+          }, {
+            "url": "usuarios",
+            "label": "Usuarios"
+          }, {
+            "url": "plugins",
+            "label": "Plugins"
+          }, {
+            "url": "editor_de_validaciones",
+            "label": "Editor de validaciones"
+          }]
+        }],
+        "_id": "000000000000000000000333",
+        "titulo": "Administrador de Insitución"
+      },
+      "tipo_documento": "CARNET_IDENTIDAD",
+      "ci": "6288534",
+      "fecha_nacimiento": "26/07/1970",
+      "createAt": "2019-01-16T22:29:44.663Z",
+      "updateAt": "2019-01-16T22:37:14.507Z",
+      "deleteAt": "2019-01-16T22:29:44.663Z",
+      "__v": 0
+    }, {
+      "activo": true,
+      "deleted": false,
+      "_id": "5bedbf6d42abb353077e6920",
+      "user": "77585582",
+      "password": "$2a$10$gNgD2fP49oR6MRmW.wABie13//M70blzyOuWAwpjdQqh.bNKmhx0C",
+      "nombres": "ESTEFANY",
+      "primer_apellido": "PEREZ",
+      "segundo_apellido": "TEST",
+      "email": "agepic-7785582@yopmail.com",
+      "telefono": "64643925",
+      "institucion": {
+        "telefonos": ["2899568"],
+        "activo": true,
+        "deleted": false,
+        "_id": "5be36c18aa81a03165f0343b",
+        "nombre": "Cámara de Diputados",
+        "sigla": "ALP-CD",
+        "descripcion": "test de la cámara de diputados",
+        "email": "test@agetic.gob.bo",
+        "web": "https://test.agetic.gob.bo/bpm-admin/#/instituciones",
+        "direccion": "calle test cámara de diputados",
+        "codigo_portal": "590",
+        "createAt": "2018-11-07T22:50:00.048Z",
+        "updateAt": "2018-11-15T19:23:03.087Z",
+        "deleteAt": "2018-11-07T22:50:00.048Z",
+        "__v": 0
+      },
+      "roles": {
+        "menu": [{
+          "url": "",
+          "icon": "desktop_mac",
+          "label": "Inicio"
+        }, {
+          "url": "documentos_plantilla",
+          "icon": "folder",
+          "label": "Documentos"
+        }, {
+          "url": "documentos-firmados",
+          "icon": "fingerprint",
+          "label": "Documentos Firmados"
+        }, {
+          "url": "lista_flujos",
+          "icon": "directions",
+          "label": "Flujos"
+        }, {
+          "url": "instanciador-flujos",
+          "icon": "device_hub",
+          "label": "Instanciador"
+        }, {
+          "url": "grupos",
+          "icon": "people",
+          "label": "Grupos"
+        }, {
+          "url": "configuracion",
+          "icon": "settings",
+          "label": "Configuración",
+          "submenu": [{
+            "url": "instituciones",
+            "label": "Instituciones"
+          }, {
+            "url": "usuarios",
+            "label": "Usuarios"
+          }, {
+            "url": "plugins",
+            "label": "Plugins"
+          }, {
+            "url": "editor_de_validaciones",
+            "label": "Editor de validaciones"
+          }]
+        }],
+        "_id": "000000000000000000000333",
+        "titulo": "Administrador de Insitución"
+      },
+      "tipo_documento": "CARNET_IDENTIDAD",
+      "ci": "7785582",
+      "fecha_nacimiento": "22/01/2008",
+      "createAt": "2018-11-15T18:48:13.655Z",
+      "updateAt": "2019-02-18T02:50:43.042Z",
+      "deleteAt": "2018-11-15T18:48:13.655Z",
+      "__v": 0
+    }, {
+      "activo": true,
+      "deleted": false,
+      "_id": "5b7b154e8f9e451b08878592",
+      "user": "demo3",
+      "password": "$2a$10$ihwJyLcCNwaWNY.QuIOdlOOvp7RoFANk01M2MlCFJntBGrsWwEieS",
+      "ci": "5011551",
+      "tipo_documento": "CARNET_IDENTIDAD",
+      "nombres": "George Michael",
+      "primer_apellido": "DemoPat",
+      "segundo_apellido": "DemoMat",
+      "fecha_nacimiento": "06/04/1984",
+      "email": "demo@agetic.gob.bo",
+      "telefono": "72598445",
+      "roles": {
+        "menu": [{
+          "url": "",
+          "icon": "desktop_mac",
+          "label": "Inicio"
+        }, {
+          "url": "documentos_plantilla",
+          "icon": "folder",
+          "label": "Documentos"
+        }, {
+          "url": "documentos-firmados",
+          "icon": "fingerprint",
+          "label": "Documentos Firmados"
+        }, {
+          "url": "lista_flujos",
+          "icon": "directions",
+          "label": "Flujos"
+        }, {
+          "url": "instanciador-flujos",
+          "icon": "device_hub",
+          "label": "Instanciador"
+        }, {
+          "url": "grupos",
+          "icon": "people",
+          "label": "Grupos"
+        }, {
+          "url": "configuracion",
+          "icon": "settings",
+          "label": "Configuración",
+          "submenu": [{
+            "url": "instituciones",
+            "label": "Instituciones"
+          }, {
+            "url": "usuarios",
+            "label": "Usuarios"
+          }, {
+            "url": "plugins",
+            "label": "Plugins"
+          }, {
+            "url": "editor_de_validaciones",
+            "label": "Editor de validaciones"
+          }]
+        }],
+        "_id": "000000000000000000000333",
+        "titulo": "Administrador de Insitución"
+      },
+      "institucion": {
+        "telefonos": ["2245667", "2282605"],
+        "activo": true,
+        "deleted": false,
+        "_id": "5b7b154d8f9e451b0887858a",
+        "nombre": "Agencia Gobierno Electronico y Tecnologias de la Informacion y Comunicacion",
+        "sigla": "AGETIC",
+        "descripcion": "La AGETIC es la institución referente en desarrollo e implementación de Gobierno Electrónico y Tecnologías de la Información y Comunicación, generando conocimiento, mejorando el servicio público y facilitando la participación para el bienestar de la población.",
+        "codigo_portal": "164",
+        "email": "contacto@agetic.gob.bo",
+        "web": "www.agetic.gob.bo",
+        "direccion": "Sopocachi, Calle Pedro Salazar Nº 631, esq. Andrés Muñoz. Edificio del Fondo Nacional de Desarrollo Regional (FNDR). Pisos 4 y 5",
+        "fecha_nacimiento": "27/05/1972",
+        "mae": "8165354",
+        "updateAt": "2019-05-10T17:04:16.826Z",
+        "createAt": "2020-01-06T13:18:11.130Z",
+        "deleteAt": "2020-01-06T13:18:11.130Z"
+      },
+      "createAt": "2018-11-13T20:03:20.290Z",
+      "deleteAt": "2018-11-13T20:03:20.290Z",
+      "updateAt": "2018-11-15T23:23:43.006Z"
+    }, {
+      "activo": true,
+      "deleted": false,
+      "_id": "5bc638c04577f016c6454435",
+      "user": "AGEMED1",
+      "password": "$2a$10$H7H4TtIArpuhl/a/4HUAl.ZhUSX6dOU.I5m22pGjHgeKkBv70o6oa",
+      "nombres": "GILBERT",
+      "primer_apellido": "PINTO",
+      "segundo_apellido": "OVANDO",
+      "email": "agepic-5822021@yopmail.com",
+      "telefono": "64643938",
+      "institucion": {
+        "telefonos": ["78845351"],
+        "activo": true,
+        "deleted": false,
+        "_id": "5bc6386b4577f016c645438b",
+        "nombre": "Agencia Estatal de Medicamentos y Tecnologías en Salud",
+        "sigla": "AGEMED",
+        "descripcion": "La Agencia Estatal de Medicamentos y Tecnologías de Salud “AGEMED” trabaja en un proyecto para controlar la calidad de productos cosméticos y naturales que son comercializados en el país, informó este miércoles la Directora General Ejecutiva de la Agemed, María Julia Carrasco.",
+        "email": "nel_delfast@hotmail.com",
+        "web": "https://bpm.agetic.gob.bo/bpm-admin/#/instituciones",
+        "direccion": "C/ Capitan Ravelo N° 2199 (Entre las Calles Fernando Guachalla y Rosendo Gutierrez",
+        "codigo_portal": "adadad",
+        "createAt": "2018-10-16T19:13:47.404Z",
+        "updateAt": "2018-10-16T19:13:47.405Z",
+        "deleteAt": "2018-10-16T19:13:47.405Z",
+        "__v": 0
+      },
+      "roles": {
+        "menu": [{
+          "url": "",
+          "icon": "desktop_mac",
+          "label": "Inicio"
+        }, {
+          "url": "documentos_plantilla",
+          "icon": "folder",
+          "label": "Documentos"
+        }, {
+          "url": "documentos-firmados",
+          "icon": "fingerprint",
+          "label": "Documentos Firmados"
+        }, {
+          "url": "lista_flujos",
+          "icon": "directions",
+          "label": "Flujos"
+        }, {
+          "url": "instanciador-flujos",
+          "icon": "device_hub",
+          "label": "Instanciador"
+        }, {
+          "url": "grupos",
+          "icon": "people",
+          "label": "Grupos"
+        }, {
+          "url": "configuracion",
+          "icon": "settings",
+          "label": "Configuración",
+          "submenu": [{
+            "url": "instituciones",
+            "label": "Instituciones"
+          }, {
+            "url": "usuarios",
+            "label": "Usuarios"
+          }, {
+            "url": "plugins",
+            "label": "Plugins"
+          }, {
+            "url": "editor_de_validaciones",
+            "label": "Editor de validaciones"
+          }]
+        }],
+        "_id": "000000000000000000000333",
+        "titulo": "Administrador de Insitución"
+      },
+      "tipo_documento": "CARNET_IDENTIDAD",
+      "ci": "5822021",
+      "fecha_nacimiento": "24/10/1981",
+      "createAt": "2018-10-16T19:15:12.617Z",
+      "updateAt": "2018-10-16T19:15:12.617Z",
+      "deleteAt": "2018-10-16T19:15:12.617Z",
+      "__v": 0
+    }, {
+      "activo": true,
+      "deleted": false,
+      "_id": "5bc4b4d3f2655224348e24e8",
+      "user": "GAMS1",
+      "password": "$2a$10$6Xl4Y26dm8rk/Z89xsZLkOx/1bbhPx.aTQTTpV.H.9GFl/Mi0djse",
+      "nombres": "ROSMINA",
+      "primer_apellido": "PINTO",
+      "segundo_apellido": "RODRIGUEZ",
+      "email": "agepic-6233775@yopmail.com",
+      "telefono": "64643939",
+      "institucion": {
+        "telefonos": ["78845351"],
+        "activo": true,
+        "deleted": false,
+        "_id": "5bc4b451f2655224348e23e2",
+        "nombre": "Gobierno Autónomo Municipal de Sacaba",
+        "sigla": "GAMS",
+        "descripcion": "El Gobierno Autónomo Municipal de Sacaba es una Entidad Territorial Autónoma Metropolitana que impulsa el desarrollo económico local, humano y territorial a través de la prestación de servicios públicos a la población de los distritos urbanos y rurales para contribuir al vivir bien, basados en los principios de democracia participativa, efectividad y equidad de sus políticas públicas",
+        "email": "nel_delfast@hotmail.com",
+        "web": "www.GAMS.gob.bo",
+        "direccion": "© 2017 Gobierno Autónomo Municipal de Sacaba",
+        "codigo_portal": "GAMS",
+        "createAt": "2018-10-15T15:37:53.318Z",
+        "updateAt": "2018-10-15T15:37:53.318Z",
+        "deleteAt": "2018-10-15T15:37:53.318Z",
+        "__v": 0
+      },
+      "roles": {
+        "menu": [{
+          "url": "",
+          "icon": "desktop_mac",
+          "label": "Inicio"
+        }, {
+          "url": "documentos_plantilla",
+          "icon": "folder",
+          "label": "Documentos"
+        }, {
+          "url": "documentos-firmados",
+          "icon": "fingerprint",
+          "label": "Documentos Firmados"
+        }, {
+          "url": "lista_flujos",
+          "icon": "directions",
+          "label": "Flujos"
+        }, {
+          "url": "instanciador-flujos",
+          "icon": "device_hub",
+          "label": "Instanciador"
+        }, {
+          "url": "grupos",
+          "icon": "people",
+          "label": "Grupos"
+        }, {
+          "url": "configuracion",
+          "icon": "settings",
+          "label": "Configuración",
+          "submenu": [{
+            "url": "instituciones",
+            "label": "Instituciones"
+          }, {
+            "url": "usuarios",
+            "label": "Usuarios"
+          }, {
+            "url": "plugins",
+            "label": "Plugins"
+          }, {
+            "url": "editor_de_validaciones",
+            "label": "Editor de validaciones"
+          }]
+        }],
+        "_id": "000000000000000000000333",
+        "titulo": "Administrador de Insitución"
+      },
+      "tipo_documento": "CARNET_IDENTIDAD",
+      "ci": "6233775",
+      "fecha_nacimiento": "17/12/1987",
+      "createAt": "2018-10-15T15:40:03.731Z",
+      "updateAt": "2018-10-15T15:40:03.731Z",
+      "deleteAt": "2018-10-15T15:40:03.731Z",
+      "__v": 0
+    }, {
+      "activo": true,
+      "deleted": false,
+      "_id": "5bbcc418d1a5c17dfcd622f2",
+      "user": "demo8",
+      "password": "$2a$10$6aZozoN0uQTxPzJjcCE86.H3Bp1OJcyeZt/5v0DtON/rgox.HFr.2",
+      "nombres": "MAuricio",
+      "primer_apellido": "Tarquino",
+      "segundo_apellido": "Flores",
+      "email": "alive@gmail.com",
+      "telefono": "77511252",
+      "institucion": {
+        "telefonos": ["71533250"],
+        "activo": true,
+        "deleted": false,
+        "_id": "5bbcbbe7d1a5c17dfcd61286",
+        "nombre": "Autoridad de Regulacion Fiscalizacion de Comunicaciones",
+        "sigla": "ATT",
+        "descripcion": "Portal Web de la Autoridad de Regulación y Fiscalización de Telecomunicaciones y Transportes",
+        "email": "consultas@att.gob.bo",
+        "web": "https://www.att.gob.bo/",
+        "direccion": "Av. Avenida Perú y Uruguay, S/N - Zona Challapampa",
+        "codigo_portal": "321321312645654",
+        "createAt": "2018-10-09T14:32:07.944Z",
+        "updateAt": "2018-10-09T14:32:07.944Z",
+        "deleteAt": "2018-10-09T14:32:07.944Z",
+        "__v": 0
+      },
+      "roles": {
+        "menu": [{
+          "url": "documentos_plantilla",
+          "icon": "folder",
+          "label": "Documentos"
+        }, {
+          "url": "lista_flujos",
+          "icon": "directions",
+          "label": "Flujos"
+        }, {
+          "url": "grupos",
+          "icon": "people",
+          "label": "Grupos"
+        }],
+        "_id": "000000000000000000000444",
+        "titulo": "Creador de Plantillas"
+      },
+      "tipo_documento": "CARNET_IDENTIDAD",
+      "ci": "8393930",
+      "fecha_nacimiento": "04/11/1998",
+      "createAt": "2018-10-09T15:07:04.423Z",
+      "updateAt": "2018-10-09T15:07:04.423Z",
+      "deleteAt": "2018-10-09T15:07:04.423Z",
+      "__v": 0
+    }, {
+      "activo": true,
+      "deleted": false,
+      "_id": "5bb775d8daeb2438945e46d2",
+      "user": "Gestora1",
+      "password": "$2a$10$fKxW4ub8oBmn8W5g0Fl/VuOCiJtcr6DHCiE09b9e0E5bJi4AeVG7O",
+      "nombres": "ANGEL",
+      "primer_apellido": "POQUIVIQUI",
+      "segundo_apellido": "POQUIVIQUI",
+      "email": "agepic-8958167@yopmail.com",
+      "telefono": "64643941",
+      "institucion": {
+        "telefonos": ["78845351"],
+        "activo": true,
+        "deleted": false,
+        "_id": "5bb7643c00f7c40b1d2311cb",
+        "nombre": "Gestora Publica de la Seguridad Social de Largo Plazo",
+        "sigla": "GESTORA",
+        "descripcion": "Seguro de salud a corto plazo vs a largo plazo. Para ayudarle a evaluar los dos extremos del espectro, este artículo describe los beneficios, la duración de la cobertura y el propósito de ambas opciones de seguro a corto plazo y a largo plazo.",
+        "email": "nel_delfast@hotmail.com",
+        "web": "https://bpm.agetic.gob.bo/bpm-admin/#/instituciones",
+        "direccion": "Calle Federico Zuazo esq. Reyes Ortiz, Torres Gundlach (Torre Oeste) planta baja",
+        "codigo_portal": "asa",
+        "createAt": "2018-10-05T13:16:44.686Z",
+        "updateAt": "2018-10-05T13:16:44.686Z",
+        "deleteAt": "2018-10-05T13:16:44.686Z",
+        "__v": 0
+      },
+      "roles": {
+        "menu": [{
+          "url": "documentos_plantilla",
+          "icon": "folder",
+          "label": "Documentos"
+        }, {
+          "url": "lista_flujos",
+          "icon": "directions",
+          "label": "Flujos"
+        }, {
+          "url": "grupos",
+          "icon": "people",
+          "label": "Grupos"
+        }],
+        "_id": "000000000000000000000444",
+        "titulo": "Creador de Plantillas"
+      },
+      "tipo_documento": "CARNET_IDENTIDAD",
+      "ci": "8958167",
+      "fecha_nacimiento": "17/10/1985",
+      "createAt": "2018-10-05T14:31:52.267Z",
+      "updateAt": "2018-10-05T14:48:40.719Z",
+      "deleteAt": "2018-10-05T14:31:52.267Z",
+      "__v": 0
+    }, {
+      "activo": true,
+      "deleted": false,
+      "_id": "5a95c2d83557e555c1be6d86",
+      "user": "demo1",
+      "password": "$2a$10$ihwJyLcCNwaWNY.QuIOdlOOvp7RoFANk01M2MlCFJntBGrsWwEieS",
+      "ci": "4206088",
+      "tipo_documento": "CI",
+      "nombres": "Usuario Demo",
+      "primer_apellido": "DemoPat",
+      "segundo_apellido": "DemoMat",
+      "fecha_nacimiento": "06/04/1984",
+      "email": "demo@agetic.gob.bo",
+      "telefono": "72598445",
+      "grupo": "000000000000000000000111",
+      "roles": {
+        "menu": [{
+          "url": "",
+          "icon": "desktop_mac",
+          "label": "Inicio"
+        }, {
+          "url": "documentos_plantilla",
+          "icon": "folder",
+          "label": "Documentos"
+        }, {
+          "url": "documentos-firmados",
+          "icon": "fingerprint",
+          "label": "Documentos Firmados"
+        }, {
+          "url": "lista_flujos",
+          "icon": "directions",
+          "label": "Flujos"
+        }, {
+          "url": "instanciador-flujos",
+          "icon": "device_hub",
+          "label": "Instanciador"
+        }, {
+          "url": "grupos",
+          "icon": "people",
+          "label": "Grupos"
+        }, {
+          "url": "configuracion",
+          "icon": "settings",
+          "label": "Configuración",
+          "submenu": [{
+            "url": "instituciones",
+            "label": "Instituciones"
+          }, {
+            "url": "usuarios",
+            "label": "Usuarios"
+          }, {
+            "url": "plugins",
+            "label": "Plugins"
+          }, {
+            "url": "editor_de_validaciones",
+            "label": "Editor de validaciones"
+          }, {
+            "url": "tags",
+            "label": "Tags"
+          }, {
+            "url": "credenciales",
+            "label": "Credenciales"
+          }]
+        }],
+        "_id": "000000000000000000000222",
+        "titulo": "Super Administrador"
+      },
+      "institucion": {
+        "telefonos": ["2245667", "2282605"],
+        "activo": true,
+        "deleted": false,
+        "_id": "5b7b154d8f9e451b0887858a",
+        "nombre": "Agencia Gobierno Electronico y Tecnologias de la Informacion y Comunicacion",
+        "sigla": "AGETIC",
+        "descripcion": "La AGETIC es la institución referente en desarrollo e implementación de Gobierno Electrónico y Tecnologías de la Información y Comunicación, generando conocimiento, mejorando el servicio público y facilitando la participación para el bienestar de la población.",
+        "codigo_portal": "164",
+        "email": "contacto@agetic.gob.bo",
+        "web": "www.agetic.gob.bo",
+        "direccion": "Sopocachi, Calle Pedro Salazar Nº 631, esq. Andrés Muñoz. Edificio del Fondo Nacional de Desarrollo Regional (FNDR). Pisos 4 y 5",
+        "fecha_nacimiento": "27/05/1972",
+        "mae": "8165354",
+        "updateAt": "2019-05-10T17:04:16.826Z",
+        "createAt": "2020-01-06T13:18:11.130Z",
+        "deleteAt": "2020-01-06T13:18:11.130Z"
+      },
+      "createAt": "2020-01-06T13:18:11.136Z",
+      "updateAt": "2020-01-06T13:18:11.136Z",
+      "deleteAt": "2020-01-06T13:18:11.136Z"
+    }]
+  }
+}

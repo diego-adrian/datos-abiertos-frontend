@@ -1,0 +1,92 @@
+Configurar servidor para despliegue de la aplicación (Test):
+  stage: prebuild
+  tags:
+    - test-runner-ansible
+  script:
+    - sudo rm -rf /opt/ansible && sudo cp ./ansible -R /opt/ansible
+    - sudo ansible-playbook /opt/ansible/0_prebuilding.yaml --extra-vars="projectName=$CI_PROJECT_NAME projectPath=$(pwd) appName=minedu-olimpiadas-admin-frontend appVersion=v1"
+    - sudo ansible-playbook /opt/ansible/5_clear_cache.yaml
+  only:
+    - test
+  variables:
+    ANSIBLE_FORCE_COLOR: 'true'
+
+Construir la aplicación con la configuración del ambiente (Test):
+  stage: build
+  tags:
+    - test-runner-ansible
+  script:
+    - sudo ansible-playbook /opt/ansible/1_install.yaml --extra-vars="projectName=$CI_PROJECT_NAME projectPath=$(pwd) appName=minedu-olimpiadas-admin-frontend appVersion=v1"
+  only:
+    - test
+  cache:
+    paths:
+      - ./.env
+      - ./node_modules
+
+Generar Release de la aplicación (Test):
+  stage: release
+  tags:
+    - test-runner-ansible
+  script:
+    - sudo ansible-playbook /opt/ansible/3_releasing.yaml --extra-vars="projectName=$CI_PROJECT_NAME projectPath=$(pwd) appName=olimpiadas-admin-frontend appVersion=v1 projectCommitSha=$CI_COMMIT_SHORT_SHA" -v
+  only:
+    - test
+  cache:
+    paths:
+      - ./.env
+      - ./node_modules
+
+Desplegar la aplicación (Test):
+  stage: deploy
+  tags:
+    - test-runner-ansible
+  script:
+    - sudo ansible-playbook  /opt/ansible/4_deploying.yaml --extra-vars="projectName=$CI_PROJECT_NAME projectPath=$(pwd) appName=olimpiadas-admin-frontend appVersion=v1 projectCommitSha=$CI_COMMIT_SHORT_SHA" -v
+  only:
+    - test
+
+RetireJS:
+  stage: sast
+  only:
+    - test
+  tags:
+    - test-runner-ansible
+  variables:
+    ELK_URL_RETIREJS: http://192.168.21.70:5001 # Obtener desde vault
+    SCAN_RETIRE: scan_retire_$CI_COMMIT_SHORT_SHA.json
+  script:
+    - retire --colors -v --severity critical --outputformat json --outputpath $SCAN_RETIRE
+    - curl --data-binary @$SCAN_RETIRE -H "app_name:retire_$CI_PROJECT_NAME" -H "version_app:$CI_COMMIT_SHORT_SHA" -H "Content-Type:application/json" $ELK_URL_RETIREJS
+  artifacts:
+    paths:
+      - $SCAN_RETIRE
+    expire_in: 1 month
+  cache:
+    paths:
+      - node_modules/
+  allow_failure: true
+
+Snyk:
+  stage: sast
+  only:
+    - test
+  tags:
+    - test-runner-ansible
+  variables:
+    KEY_SNYK: bc39f1c9-3a75-4b0a-bf86-1f6c62890eb2
+    SCAN_SNYK: scan_snyk_$CI_COMMIT_SHORT_SHA.json
+    ELK_URL_SNYK: http://192.168.21.70:5002 # Obtener desde vault
+  before_script:
+    - snyk auth $KEY_SNYK
+  script:
+    - snyk test --quiet --json-file-output=$SCAN_SNYK || true
+    - curl --data-binary @$SCAN_SNYK -H "app_name:snyk_$CI_PROJECT_NAME" -H "version_app:$CI_COMMIT_SHORT_SHA" -H "Content-Type:application/json" $ELK_URL_SNYK
+  artifacts:
+    paths:
+      - $SCAN_SNYK
+    expire_in: 1 month
+  cache:
+    paths:
+      - node_modules/
+  allow_failure: true

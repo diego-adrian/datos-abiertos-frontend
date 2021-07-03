@@ -1,0 +1,59 @@
+{
+  "name": "frontend-base-vue",
+  "version": "0.1.0",
+  "private": true,
+  "author": "dbarra@agetic.gob.bo",
+  "scripts": {
+    "build": "vue-cli-service build",
+    "test": "vue-cli-service test:unit",
+    "lint": "vue-cli-service lint",
+    "report": "vue-cli-service build --report",
+    "secure": "vue-cli-service --https --open serve",
+    "start": "vue-cli-service --open serve",
+    "coverage": "jest --coverage"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "testResultsProcessor": "jest-sonar-reporter"
+  },
+  "dependencies": {
+    "axios": "^0.21.0",
+    "casbin": "^5.6.0",
+    "core-js": "^3.7.0",
+    "dayjs": "^1.10.3",
+    "system-appearance": "^1.0.2",
+    "validate.js": "^0.13.1",
+    "vue": "^2.6.12",
+    "vue-router": "^3.5.1",
+    "vue-session": "^1.0.0",
+    "vue-simple-uploader": "^0.7.6",
+    "vuetify": "^2.4.2",
+    "vuex": "^3.5.1",
+    "xlsx": "^0.17.0",
+    "zxcvbn": "^4.4.2"
+  },
+  "devDependencies": {
+    "@dbetka/vue-material-icons": "^0.2.5",
+    "@vue/cli-plugin-babel": "^4.5.8",
+    "@vue/cli-plugin-eslint": "^4.5.10",
+    "@vue/cli-plugin-router": "^4.5.8",
+    "@vue/cli-plugin-unit-jest": "^4.5.11",
+    "@vue/cli-plugin-vuex": "^4.5.8",
+    "@vue/cli-service": "^4.5.8",
+    "@vue/eslint-config-airbnb": "^5.1.0",
+    "@vue/test-utils": "^1.0.3",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.13.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-vue": "^7.1.0",
+    "imagemin-webpack-plugin": "^2.4.2",
+    "jest": "^26.6.3",
+    "jest-sonar-reporter": "^2.0.0",
+    "node-sass": "^5.0.0",
+    "sass": "^1.29.0",
+    "sass-loader": "^10.1.0",
+    "vue-template-compiler": "^2.6.12",
+    "vuetify-loader": "^1.6.0",
+    "webpack-bundle-analyzer": "^4.1.0"
+  }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login ciudadanía</title>
+    <script src="./config.js"></script>
+  </head>
+  <body>
+  <script type="text/javascript">
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      if (params.get('code') && params.get('state') && params.get('session_state')) {
+        var code = params.get('code');
+        var state = params.get('state');
+        var session_state = params.get('session_state');
+        var url = config.urlCiudadaniaCallback;
+        url += '?code=' + code;
+        url += '&state=' + state;
+        url += '&session_state=' + session_state;
+        fetch(url)
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (response) {
+            var data = response;
+	    // Obteniendo los modulos
+	    var menu = [];
+	    var rol = '';
+	    var roles = [];
+            window.localStorage.setItem(config.appName + '_menu', JSON.stringify(menu));
+            window.localStorage.setItem(config.appName + '_rol', JSON.stringify(rol));
+            window.localStorage.setItem(config.appName + '_roles', JSON.stringify(roles));
+            window.localStorage.setItem(config.appName + '_token', data.token);
+            window.localStorage.setItem(config.appName + '_sidenav', JSON.stringify(true));
+            window.localStorage.setItem(config.appName + '_user', JSON.stringify(data.usuario));
+            window.location = config.urlHome + '#/' + config.page;
+          })
+          .catch(function (error) {
+            window.localStorage.setItem(config.appName + '_error', unescape(decodeURIComponent(error)));
+            window.location = config.urlLogin;
+          });
+      } else {
+	var error_description = 'Ocurrio un error al tratar de conectarse con ciudadanía digital';
+        window.localStorage.setItem(config.appName + '_error', unescape(decodeURIComponent(error_description)));
+        window.location = config.urlLogin;
+      }
+    })();
+  </script>
+  </body>
+
+</html>

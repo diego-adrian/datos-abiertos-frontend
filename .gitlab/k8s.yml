@@ -1,0 +1,198 @@
+Instalar dependencias:
+  image: node:12.20-slim
+  stage: build
+  only:
+    - /test-.*/
+  tags:
+    - runner-kubernetes
+  script:
+    - npm set registry https://registry.upat.agetic.gob.bo
+    - npm set strict-ssl false
+    - npm ci
+  artifacts:
+    paths:
+      - node_modules/
+      - package-lock.json
+    expire_in: 1 day
+
+Verificar paquetes:
+  image: opensecurity/nodejsscan:latest
+  stage: test
+  only:
+    - /test-.*/
+  tags:
+    - runner-kubernetes
+  except:
+    refs:
+      - master
+  script:
+    - njsscan .
+  allow_failure: true
+
+Ejecutar tests de integración:
+  image: node:12.20-slim
+  stage: test
+  only:
+    - /test-.*/
+  tags:
+    - runner-kubernetes
+  except:
+    refs:
+      - master
+  script:
+    - npm test
+  allow_failure: true
+
+Generando reporte de calidad sonarqube:
+  image: sonarsource/sonar-scanner-cli:4.1
+  stage: test
+  only:
+    - /test-.*/
+  tags:
+    - runner-kubernetes
+  except:
+    refs:
+      - master
+  script:
+    - npm test
+    - npm run coverage
+    - sonar-scanner -Dsonar.qualitygate.wait=true -Dsonar.projectKey=$CI_PROJECT_NAME -Dsonar.sources=src -Dsonar.host.url=$TEST_REPO_URL -Dsonar.login=$TEST_REPO_TOKEN -Dsonar.exclusions=/node_modules/,tests/,coverage/ -Dsonar.tests=tests -Dsonar.test.inclusions=tests/unit/*.spec.js -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info -Dsonar.testExecutionReportPaths=test-report.xml -Dsonar.projectVersion=v0.1.0
+  allow_failure: true
+
+Ejecutando scan de seguridad trivy:
+  image: docker:19.03.12
+  stage: sast
+  only:
+    - /test-.*/
+  tags:
+    - runner-kubernetes
+  except:
+    refs:
+      - master
+  variables:
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_TLS_CERTDIR: ""
+    IMAGE_NAME: "$CI_PROJECT_NAME-$CI_COMMIT_SHORT_SHA"
+    TRIVY_URL_VERSION: https://api.github.com/repos/aquasecurity/trivy/releases/latest
+    SCAN_TRIVY: trivy-report_$CI_COMMIT_SHORT_SHA.json
+    URL_ELK: http://192.168.21.70:5000 # TODO: Obtener desde vault
+  services:
+    - name: docker:19.03.12-dind
+  before_script:
+    - docker info
+    - export TRIVY_VERSION=$(wget -qO - "$TRIVY_URL_VERSION"|grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
+    - echo $TRIVY_VERSION
+    - export TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_linux-64bit.tar.gz
+    - echo $TRIVY_URL
+    - wget --no-verbose $TRIVY_URL -O - |tar -zxvf -
+    - apk add curl
+  script:
+    - docker build -t $IMAGE_NAME .
+    - docker images
+    - ./trivy --version
+    - ./trivy --exit-code 0 --cache-dir .trivycache/ --no-progress -f json -o $SCAN_TRIVY  $IMAGE_NAME
+    - curl --data-binary @$SCAN_TRIVY -H "app_name:trivy_$CI_PROJECT_NAME" -H "version_app:$CI_COMMIT_SHORT_SHA" -H "Content-Type:application/json" $URL_ELK
+    - ./trivy --exit-code 0 --cache-dir .trivycache/ --no-progress --severity HIGH $IMAGE_NAME
+    - ./trivy --exit-code 0 --cache-dir .trivycache/ --severity CRITICAL --no-progress $IMAGE_NAME
+  artifacts:
+    paths:
+      - $SCAN_TRIV
+    expire_in: 1 month
+  allow_failure: true
+
+Generar imagen de la aplicación:
+  image: gcr.io/kaniko-project/executor:v1.3.0-debug
+  stage: release
+  only:
+    - /test-.*/
+  tags:
+    - runner-kubernetes
+  script:
+    - echo $CONFIGURE_IMAGE | base64 -d > ./configure-image-generation.sh
+    - chmod +x ./configure-image-generation.sh
+    - . ./configure-image-generation.sh
+    - env
+    - /kaniko/executor --context . --dockerfile ./Dockerfile --build-arg CI_COMMIT_SHORT_SHA=$CI_COMMIT_SHORT_SHA --build-arg CI_COMMIT_REF_NAME=$CI_COMMIT_REF_NAME --build-arg CI_COMMIT_MESSAGE="$CI_COMMIT_MESSAGE" --build-arg VUE_APP_FRONTEND=$VUE_APP_FRONTEND --build-arg VUE_APP_API_URL=$VUE_APP_API_URL --build-arg VUE_APP_BASE_SERVER=$VUE_APP_BASE_SERVER --build-arg VUE_APP_PUBLIC_PATH=$VUE_APP_PUBLIC_PATH --destination $IR_REPO_URL:$NAMESPACE
+
+Desplegar la aplicación:
+  image: alpine/helm:3.1.3
+  stage: deploy
+  only:
+    - /test-.*/
+  tags:
+    - runner-kubernetes
+  script:
+    - echo $CI_PROJECT_NAME
+    - export IOP_VAULT_ENVIRONMENT=develop
+    - echo $DEPLOY_CONTAINER | base64 -d > ./configure-container-deployment.sh
+    - chmod +x ./configure-container-deployment.sh
+    - . ./configure-container-deployment.sh
+    - helm repo add --username "robot$"$IR_USER --password $IR_PASS repository $IR_CHART_REPO_URL
+    - echo $IR_USER
+    - echo $IR_PASS
+    - echo $IR_CHART_REPO_URL
+    - helm repo update
+    - echo $CI_COMMIT_SHORT_SHA
+    - echo $IR_CHART_NAME
+    - cat values.yml
+    - cat ./config.yml
+    - env
+    - helm upgrade -i --debug $CI_PROJECT_NAME repository/$IR_CHART_NAME --kubeconfig ./config.yml -f values.yml -n $NAMESPACE --debug --force --set gitlabCommit=$CI_COMMIT_SHORT_SHA
+
+RetireJS:
+  stage: sast
+  image: node:16.0.0-alpine
+  only:
+    - /test-.*/
+  tags:
+    - runner-kubernetes
+  except:
+    refs:
+      - master
+  variables:
+    ELK_URL_RETIREJS: http://192.168.21.70:5001 # TODO: Obtener desde vault
+    SCAN_RETIRE: scan_retire_$CI_COMMIT_SHORT_SHA.json
+  before_script:
+    - npm set registry https://registry.upat.agetic.gob.bo
+    - npm set strict-ssl false
+    - npm i -g retire
+    - retire -V
+  script:
+    - retire --colors -v --severity critical --outputformat json --outputpath $SCAN_RETIRE
+    - curl --data-binary @$SCAN_RETIRE -H "app_name:retire_$CI_PROJECT_NAME" -H "version_app:$CI_COMMIT_SHORT_SHA" -H "Content-Type:application/json" $ELK_URL_RETIREJS
+  artifacts:
+    paths:
+      - $SCAN_RETIRE
+    expire_in: 1 month
+  allow_failure: true
+
+Snyk:
+  stage: sast
+  image: node:16.0.0-alpine
+  only:
+    - /test-.*/
+  tags:
+    - runner-kubernetes
+  except:
+    refs:
+      - master
+  variables:
+    SCAN_SNYK: scan_snyk_$CI_COMMIT_SHORT_SHA.json
+    ELK_URL_SNYK: http://192.168.21.70:5002 # TODO: Obtener desde vault
+  before_script:
+    - npm set registry https://registry.upat.agetic.gob.bo
+    - npm set strict-ssl false
+    - npm i -g snyk
+    - snyk -v
+    # TODO: Agregar SAST_SNYK_KEY en las variables del runner
+    - snyk auth $SAST_SNYK_KEY
+  script:
+    - snyk test --quiet --json-file-output=$SCAN_SNYK || true
+    - curl --data-binary @$SCAN_SNYK -H "app_name:snyk_$CI_PROJECT_NAME" -H "version_app:$CI_COMMIT_SHORT_SHA" -H "Content-Type:application/json" $ELK_URL_SNYK
+    - snyk test --quiet --json
+  artifacts:
+    paths:
+      - $SCAN_SNYK
+    expire_in: 1 month
+  allow_failure: true
+  
