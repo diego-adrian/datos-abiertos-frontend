@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <app-navbar></app-navbar>
-    <app-sidebar v-if="!['/login'].includes($route.path)"></app-sidebar>
+    <app-sidebar v-if="auth"></app-sidebar>
     <v-main v-if="main">
       <div :class="getClasses" class="main">
         <transition :name="transitionName" mode="out-in">
@@ -32,7 +32,7 @@ import AppSidebar from './layout/AppSidebar.vue';
 import AppFooter from './layout/AppFooter.vue';
 
 // Páginas que no necesitan autenticación/token/sesión
-const PageNoLogin = ['login', 'desbloqueo'];
+const PageNoLogin = ['login'];
 
 export default {
   name: 'App',
@@ -93,10 +93,8 @@ export default {
       if (!['xs', 'sm'].includes(this.$vuetify.breakpoint.name)) {
         className = 'pl-5 pr-5';
       }
-      if (this.$route.path === '/home') {
+      if (this.$route.path === '/login') {
         className += ' d-flex flex-row align-center justify-center';
-      } else if (this.$route.path === '/login') {
-        className += ' isLogin';
       } else {
         className += !['xs', 'sm'].includes(this.$vuetify.breakpoint.name) ? ' pl-15 pr-5' : '';
       }

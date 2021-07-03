@@ -1,23 +1,14 @@
 <template>
-  <v-card color="backgroundColor" elevation="0" class="app-home">
-    <div class="header">
-      <v-img
-          max-width="700px"
-          contain
-          :src="this.$vuetify.theme.dark ? './img/header-logo-minedu-dark.png' : './img/header-logo-minedu.png'"
-      />
-    </div>
-    <div class="logo"></div>
-    <v-card elevation="0" color="backgroundColor"
-      class="titulo-home">
-      Bienvenido, {{ perfil.nombres }}
-    </v-card>
-    <v-card elevation="0" color="backgroundColor" class="rol-home">
-      {{ (rol || '').replace(/_/gi, ' ') }}
-    </v-card>
-    <v-card elevation="0" color="backgroundColor" class="titulo-home pt-2 fs12">
-      {{ (nombreOlimpiada || '').replace(/_/gi, ' ') }}
-    </v-card>
+  <v-card color="backgroundColor" elevation="0" class="app-home d-flex flex-row align-center justify-center flex-wrap">
+     <v-img
+      v-for="(sectores, i) in aSectores" :key="i"
+      class="white--text align-end ma-2 cursor--pointer"
+      height="200px"
+      width="400px"
+      src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+    >
+      <v-card-title>{{ sectores.nombre }}</v-card-title>
+    </v-img>
   </v-card>
 </template>
 
@@ -26,6 +17,7 @@
 export default {
   data() {
     return {
+      aSectores: [],
       rol: null,
       nombreOlimpiada: null,
       perfil: {
@@ -39,14 +31,30 @@ export default {
     };
   },
   mounted() {
-    this.obtenerDatos();
     this.$nextTick(() => {
-      const rol = this.$storage.get('rol');
-      const { nombre } = this.$storage.get('olimpiadaSeleccionada');
-      if (rol) {
-        this.rol = rol.rol;
-        this.nombreOlimpiada = nombre;
-      }
+      this.aSectores = [
+        {
+          nombre: 'Medicina'
+        },
+        {
+          nombre: 'Turismo'
+        },
+        {
+          nombre: 'Tecnologia'
+        },
+        {
+          nombre: 'Trabajo'
+        },
+        {
+          nombre: 'Educacion'
+        },
+        {
+          nombre: 'Salud'
+        },
+        {
+          nombre: 'Otros'
+        }
+      ];
     });
   },
   methods: {
@@ -87,21 +95,9 @@ export default {
 }
 
 .app-home {
-  max-width: 700px;
   margin: auto;
   height: 100%;
   width: 100%;
-  .header {
-    background-size: contain;
-    width: 100%;
-    height: 200px;
-  }
-  .logo {
-    background: url('../../../public/img/logoOlimpiadas.png') no-repeat center;
-    background-size: contain;
-    width: 100%;
-    height: 150px;
-  }
 }
 
 </style>
