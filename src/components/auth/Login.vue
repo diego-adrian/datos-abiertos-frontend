@@ -1,13 +1,6 @@
 <template>
   <div class="login--app d-flex flex-column align-center justify-center">
-    <div class="header">
-      <v-img
-          max-width="700px"
-          contain
-          class="mx-auto"
-          :src="this.$vuetify.theme.dark ? './img/header-logo-minedu-dark.png' : './img/header-logo-minedu.png'"
-      />
-    </div>
+    <div class="header"></div>
     <div
       class="main d-flex align-center justify-center"
       :class="{
@@ -20,15 +13,15 @@
       >
         <div class="image"></div>
         <div class="text d-flex flex-column align-center justify-center">
-          <span class="primary--text">SISTEMA DE COMPETENCIA EDUCATIVAS DEL ESTADO PLURINACIONAL DE BOLIVIA</span>
-          <span class="pa-4">El sistema permite la organización y gestión de competencias educativas en línea con el fin de promover el desarrollo de capacidades científicas y tecnológicas e identificar talentos en estudiantes bolivianos</span>
+          <span class="primary--text">SISTEMA DE DATOS ABIERTOS DEL ESTADO PLURINACIONAL DE BOLIVIA</span>
+          <span class="pa-4">El sistema permite la organización y gestión de datos enviados por los diferentes sectores del estado plurinacional.</span>
         </div>
       </div>
       <v-divider vertical v-if="!['xs'].includes($vuetify.breakpoint.name)"/>
       <div class="credentials d-flex flex-column align-center justify-center">
         <template v-if="!['xs'].includes($vuetify.breakpoint.name)">
           <span class="iniciar-sesion primary--text">Iniciar Sesión</span>
-          <span class="details">Ingresa con el usuario y contraseña otorgados por el Ministerio de Educación</span>
+          <span class="details">Ingresa con el usuario y contraseña</span>
         </template>
         <v-form
           lazy-validation
@@ -187,12 +180,12 @@ export default {
       }
       .description {
         .image {
-          background: url('../../../public/img/logoOlimpiadas.png') no-repeat;
+          background: url('../../../public/img/logoDatos.png') no-repeat;
           background-position: top center;
           background-size: contain;
           object-fit: contain;
           width: 300px;
-          height: 200px;
+          height: 120px;
         }
         .text {
           margin: auto;
@@ -215,9 +208,11 @@ export default {
 @media screen and (min-width: 601px) {
   .login--app {
     .header {
+      background: url('../../../public/img/escudo.jpeg') no-repeat;
       background-position: top center;
-      background-size: contain;
-      width: 100%;
+      background-size: cover;
+      object-fit: cover;
+      width: 400px;
       height: 200px;
     }
     .main {
@@ -246,9 +241,11 @@ export default {
 @media screen and (max-width: 600px) and (min-width: 1px) {
   .login--app {
     .header {
+      background: url('../../../public/img/escudo.jpeg') no-repeat;
       background-position: top center;
       background-size: contain;
-      width: 100%;
+      object-fit: contain;
+      width: 300px;
       height: 200px;
     }
     .main {
