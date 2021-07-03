@@ -66,100 +66,6 @@ const routes = [
     component: () => import(/* webpackChunkName: "home" */ '../components/home/Home')
   },
   {
-    path: '/calificacion-publicacion',
-    name: 'Calificacion Publicacion',
-    component: () => import(/* webpackChunkName: "home" */ '../components/calificacion/index.vue')
-  },
-  {
-    path: '/politicas',
-    name: 'Políticas',
-    component: () => import(/* webpackChunkName: "politicas" */ '../components/politicas'),
-    beforeEnter: isAllowed
-  },
-  {
-    path: '/usuarios',
-    name: 'Usuarios',
-    component: () => import(/* webpackChunkName: "usuarios" */ '../components/usuarios'),
-    beforeEnter: isAllowed
-  },
-  {
-    path: '/perfil',
-    name: 'Perfil',
-    component: () => import(/* webpackChunkName: "perfil" */ '../components/usuarios/Perfil.vue'),
-    beforeEnter: isAllowed
-  },
-  {
-    path: '/entidades',
-    name: 'Entidades',
-    component: () => import(/* webpackChunkName: "entidades" */ '../components/entidades'),
-    beforeEnter: isAllowed
-  },
-  {
-    path: '/competencias',
-    name: 'Competencias',
-    component: () => import(/* webpackChunkName: "olimpiadas" */ '../components/competencias'),
-    beforeEnter: isAllowed
-  },
-  {
-    path: '/olimpiadas',
-    name: 'Olimpiadas',
-    component: () => import(/* webpackChunkName: "olimpiadas" */ '../components/olimpiada'),
-    beforeEnter: isAllowed
-  },
-  {
-    path: '/banco-preguntas',
-    name: 'Banco Preguntas',
-    component: () => import(/* webpackChunkName: "olimpiadas" */ '../components/bancoPreguntas'),
-    beforeEnter: isAllowed
-  },
-  {
-    path: '/parametros',
-    name: 'Parámetros',
-    component: () => import(/* webpackChunkName: "parametros" */ '../components/parametros'),
-    beforeEnter: isAllowed
-
-  },
-  {
-    path: '/areas',
-    name: 'Areas',
-    component: () => import(/* webpackChunkName: "areas" */ '../components/areas'),
-  },
-  {
-    path: '/grados-escolares',
-    name: 'Grados de escolaridad',
-    component: () => import(/* webpackChunkName: "gradoEscolaridad" */ '../components/grado-escolaridad'),
-  },
-  {
-    path: '/etapas',
-    name: 'Etapas',
-    component: () => import(/* webpackChunkName: "etapas" */ '../components/etapas'),
-  },
-  {
-    path: '/distritos',
-    name: 'Distritos',
-    component: () => import(/* webpackChunkName: "distritos" */ '../components/distritos'),
-  },
-  {
-    path: '/unidades-educativas',
-    name: 'Unidades Educativas',
-    component: () => import(/* webpackChunkName: "unidadesEducativas" */ '../components/unidadesEducativas'),
-  },
-  {
-    path: '/inscripciones',
-    name: 'Inscripciones',
-    component: () => import(/* webpackChunkName: "bancoPreguntas" */ '../components/inscripciones'),
-  },
-  {
-    path: '/etapas-areas-grados',
-    name: 'Etapas por área y por grado',
-    component: () => import(/* webpackChunkName: "entidades" */ '../components/etapas-areas-grados'),
-  },
-  {
-    path: '/medalleros-generar',
-    name: 'Medalleros Generar',
-    component: () => import(/* webpackChunkName: "home" */ '../components/medalleros')
-  },
-  {
     path: '/404',
     name: 'notfound',
     component: () => import(/* webpackChunkName: "notFound" */ '../layout/AppNotFound.vue')
@@ -169,22 +75,6 @@ const routes = [
     name: 'forbidden',
     component: () => import(/* webpackChunkName: "forbidden" */ '../layout/AppForbidden.vue')
   },
-  {
-    path: '/desbloqueo',
-    name: 'desbloqueo',
-    component: () => import(/* webpackChunkName: "desbloqueo" */ '../layout/AppDesbloqueo.vue')
-  },
-  {
-    path: '/examen-offline',
-    name: 'Pruebas offline',
-    component: () => import(/* webpackChunkName: "desbloqueo" */ '../components/examenOffline')
-  },
-  {
-    path: '/impugnacion',
-    name: 'Impugnación de preguntas',
-    component: () => import(/* webpackChunkName: "desbloqueo" */ '../components/impugnacion')
-  },
-
   {
     path: '*',
     redirect: '/404'
